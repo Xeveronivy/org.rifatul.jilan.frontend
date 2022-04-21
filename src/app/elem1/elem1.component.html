@@ -1,0 +1,14 @@
+<form [formGroup]="formAddEdit"
+    class="form-control" >
+    <div class="mb-3">
+        <label class="form-label ">PublisherID</label>
+        <input class="form-control" formControlName="publisherId">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">PublishName</label>
+        <input class="form-control" formControlName="publishName">
+      </div> 
+      <div class="col-auto">
+        <button type="submit" (click)="confirm()" class="btn btn-primary mb-3">Confrim</button>
+      </div>
+</form>
