@@ -1,1 +1,22 @@
-<p>elem2 works!</p>
+<form [formGroup]="formAddEdit">
+    <div class="mb-3">
+        <label class="form-label ">AuthorID</label>
+        <input class="form-control" formControlName="authorId">
+        <span class="error-block" *ngIf="!formAddEdit.get('authorId')?.valid && formAddEdit.get('authorId')?.touched">
+         <span *ngIf="!formAddEdit.get('authorId')?.errors?.['min']"> Tidak boleh kurang dari 1000 </span>
+         <span *ngIf="!formAddEdit.get('authorId')?.errors?.['required']"> Wajib di isi </span>
+        </span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">AuthorName</label>
+        <input class="form-control" formControlName="authorName">
+      <span class="error-block" *ngIf="!formAddEdit.get('authorName')?.valid &&
+       formAddEdit.get('authorName')?.touched">
+      <span *ngIf="!formAddEdit.get('authorName')?.errors?.['minlength']"> Tidak boleh kurang 5 karakter </span>
+      <span *ngIf="!formAddEdit.get('authorName')?.errors?.['required']"> Wajib di isi </span>
+      </span>
+      </div>
+      <div class="col-auto">
+        <button type="submit" (click)="confirm()" class="btn btn-primary mb-3">Confrim</button>
+      </div>
+</form>

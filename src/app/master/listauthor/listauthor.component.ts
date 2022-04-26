@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { Publisher } from 'src/app/model/publisher';
+import { Author } from 'src/app/model/author';
 import { MasterService } from 'src/app/services/master.service';
 
+
 @Component({
-  selector: 'app-listpublisher',
-  templateUrl: './listpublisher.component.html',
-  styleUrls: ['./listpublisher.component.css'],
+  selector: 'app-listauthor',
+  templateUrl: './listauthor.component.html',
+  styleUrls: ['./listauthor.component.css'],
   providers: [MasterService]
 })
-export class ListpublisherComponent implements OnInit {
-  daftarPublisher!: Publisher[]
+export class ListauthorComponent implements OnInit {
+
+daftarAuthor!: Author[]
   constructor(private master: MasterService) { }
 
   ngOnInit(): void {
-    this.master.listPublisher().subscribe(
+    this.master.listAuthor().subscribe(
       {
         next: hasil => {
-          this.daftarPublisher = hasil
+          this.daftarAuthor = hasil
         },
         error: err =>{
           console.log(err)
@@ -24,5 +26,4 @@ export class ListpublisherComponent implements OnInit {
       }
     )
   }
-
 }
